@@ -1,0 +1,207 @@
+﻿@page "/cars"
+
+<PageTitle>Profil</PageTitle>
+
+@using CarRental.APP.Data;
+@using CarRental.Infrastructure.DTO.Cars;
+@using CarRental.Infrastructure.DTO.Rentals;
+@inject CarsService carsService
+@inject AccountService accountService
+
+
+<h3>Samochody do wynajęcia</h3>
+
+@if (accountService.IsAdmin().Result)
+{
+    <button @onclick="ShowModalAddCar" class="btn btn-primary right">Dodaj samochód</button>
+}
+
+<br />
+<div>
+
+    @if (carsService.CarsDto == null)
+    {
+        <p><em>Loading...</em></p>
+    }
+    else
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Samochód</th>
+                    <th>Opis</th>
+                    <th>Cena za dzień</th>
+                    <th>Cena za godzinę</th>
+                    @if (accountService.IsAdmin().Result)
+                    {
+                        <th></th>
+                    }
+                    else if (@accountService.Account != null)
+                    {
+                        <th>Wynajem</th>
+                    }
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var car in carsService.CarsDto)
+                {
+                    <tr>
+                        <td>@car.Name</td>
+                        <td>@car.Description</td>
+                        <td>@car.PricePerDay</td>
+                        <td>@car.PricePerHour</td>
+                        @if (accountService.IsAdmin().Result)
+                        {
+                            <td><button @onclick="(() => ShowConfirmation(car.Id))" class="btn btn-danger">X</button></td>
+                        }
+                        else if (@accountService.Account != null)
+                        {
+                            <td><button @onclick="(() => ShowModalAddRental(car.Id))" class="btn btn-primary">Dodaj</button></td>
+                        }
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
+
+@if (showConfirmation)
+{
+    <div class="modal show d-block" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Potwierdzenie</h5>
+                </div>
+                <div class="modal-body">
+                    <p>Czy na pewno chcesz usunąć samochód?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" @onclick="DeleteConfirmed">Tak</button>
+                    <button type="button" class="btn btn-secondary" @onclick="DeleteCancelled">Nie</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@if (modalAddCar)
+{
+    <div class="modal show d-block" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Dodaj samochód</h5>
+                </div>
+                <div class="modal-body">
+                    <label>Nazwa samochodu</label>
+                    <input @bind="createCar.Name" type="text" />
+                    <br>
+                    <label>Opis</label>
+                    <input @bind="createCar.Description" type="text" />
+                    <br>
+                    <label>Cena za dzień wynajmu</label>
+                    <input @bind="createCar.PricePerDay" type="number" />
+                    <br>
+                    <label>Cena za godzinę wynajmu</label>
+                    <input @bind="createCar.PricePerHour" type="number" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" @onclick="AddCarConfirmed">Potwierdź</button>
+                    <button type="button" class="btn btn-secondary" @onclick="AddCarCancelled">Anuluj</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@if (modalAddRental)
+{
+    <div class="modal show d-block" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Wypożycz</h5>
+                </div>
+                <div class="modal-body">
+                    <label>Data rozpoczęcia</label>
+                    <input @bind="createRental.StartDate" type="datetime-local" />
+                    <br>
+                    <label>Data zakończenia</label>
+                    <input @bind="createRental.EndDate" type="datetime-local" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" @onclick="AddRentalConfirmed">Potwierdź</button>
+                    <button type="button" class="btn btn-secondary" @onclick="AddRentalCancelled">Anuluj</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    private Guid idToBeDeleted;
+    private Guid carIdToRental;
+    private bool showConfirmation = false;
+    private bool modalAddCar = false;
+    private bool modalAddRental = false;
+    private CreateRentalDto createRental = new CreateRentalDto();
+    private CreateCarDto createCar = new CreateCarDto();
+
+    private async Task ShowModalAddRental(Guid id)
+    {
+        carIdToRental = id;
+        modalAddRental = true;
+    }
+    private async Task AddRentalConfirmed()
+    {
+        createRental.CarId = carIdToRental;
+        createRental.UserId = accountService.Account.Id;
+
+        await carsService.AddRental(createRental);
+        modalAddRental = false;
+    }
+    private async Task AddRentalCancelled()
+    {
+        modalAddRental = false;
+    }
+    private async Task ShowModalAddCar()
+    {
+        modalAddCar = true;
+    }
+    private async Task AddCarConfirmed()
+    {
+        await carsService.AddCar(createCar);
+        modalAddCar = false;
+    }
+    private async Task AddCarCancelled()
+    {
+        modalAddCar = false;
+    }
+    private async Task ShowConfirmation(Guid id)
+    {
+        showConfirmation = true;
+        idToBeDeleted = id;
+    }
+    private async Task DeleteConfirmed()
+    {
+        await carsService.DeleteCar(idToBeDeleted);
+        showConfirmation = false;
+    }
+    private async Task DeleteCancelled()
+    {
+        showConfirmation = false;
+    }
+    private async void UpdateState()
+    {
+        StateHasChanged();
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        base.OnInitialized();
+        carsService.CarsChanged += UpdateState;
+
+        await carsService.GetCars();
+    }
+}

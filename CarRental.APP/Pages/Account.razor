@@ -1,0 +1,230 @@
+﻿@page "/account"
+
+<PageTitle>Profil</PageTitle>
+
+@using CarRental.Infrastructure.DTO.Rentals;
+@using CarRental.Infrastructure.DTO.Users
+@using CarRental.APP.Data
+@inject HttpClient Http
+@inject AccountService accountService
+
+@if (errorMessage != null)
+{
+    <p>@errorMessage</p>
+}
+
+@if (@accountService.Account != null)
+{
+    if (!@accountService.IsAdmin().Result)
+    {
+        <h3>Witaj, @accountService.Account.Name</h3>
+        <br />
+        <button @onclick="LogOut" class="btn btn-primary">Wyloguj</button>
+        <br />
+        <br />
+        <div>
+            <p>Twoja lista wynajętych aut:</p>
+
+            @if (accountService.RentalsDto == null)
+            {
+                <p><em>Loading...</em></p>
+            }
+            else
+            {
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Samochód</th>
+                            <th>Data rozpoczęcia</th>
+                            <th>Data zakończenia</th>
+                            <th>Cena</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var rental in accountService.RentalsDto)
+                        {
+                            <tr>
+                                <td>@rental.CarName</td>
+                                <td>@TimeZoneInfo.ConvertTimeFromUtc(rental.StartDate, TimeZoneInfo.Utc))</td>
+                                <td>@TimeZoneInfo.ConvertTimeFromUtc(rental.EndDate, TimeZoneInfo.Utc)</td>
+                                <td>@rental.RentPrice</td>
+                                <td><button @onclick="(() => ShowConfirmation(rental.Id))" class="btn btn-danger">X</button></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+        </div>
+    }
+    else
+    {
+        <h3>Witaj, @accountService.Account.Name</h3>
+        <br />
+        <button @onclick="LogOut" class="btn btn-primary">Wyloguj</button>
+    }
+}
+else
+{
+    <div>
+        <h3>Witamy w CarRental</h3>
+        <br />
+        <br />
+        <label>Email:</label>
+        <input @bind="login.Email" type="email" />
+        <br>
+        <br>
+        <label>Password:</label>
+        <input @bind="login.Password" type="password" />
+        <br>
+        <br>
+        <button @onclick="LogIn" class="btn btn-primary">Zaloguj</button>
+    </div>
+    <div>
+        <br>
+        <br>
+        <h4>Nie masz jeszcze konta?</h4>
+        <br>
+        <button @onclick="ShowRegister" class="btn btn-primary">Zarejestruj się</button>
+    </div>
+}
+
+@if (showConfirmation)
+{
+    <div class="modal show d-block" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Potwierdzenie</h5>
+                </div>
+                <div class="modal-body">
+                    <p>Czy na pewno chcesz usunąć wynajem?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" @onclick="DeleteConfirmed">Tak</button>
+                    <button type="button" class="btn btn-secondary" @onclick="DeleteCancelled">Nie</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@if (showRegister)
+{
+    <div class="modal show d-block" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Rejestracja</h5>
+                </div>
+                <div class="modal-body">
+                    <label>Podaj nazwę użytkownika</label>
+                    <input @bind="register.Name" type="text" required />
+                    <br>
+                    <label>Podaj email</label>
+                    <input @bind="register.Email" type="text" required />
+                    <br>
+                    <label>Podaj hasło</label>
+                    <input @bind="register.Password" type="password" required />
+                    <br>
+                    <label>Powtórz hasło</label>
+                    <input @bind="passwordCheck" type="password" required />
+                    <br>
+                    @if (!string.IsNullOrEmpty(errorPassword))
+                    {
+                        <label style="color: red;">@errorPassword</label>
+                        <br>
+                    }
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" @onclick="RegisterConfirmed">Zarejestruj</button>
+                    <button type="button" class="btn btn-secondary" @onclick="RegisterCancelled">Anuluj</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+@code {
+    private string errorMessage = null;
+    private string errorPassword = null;
+    private Login login = new Login();
+    private Register register = new Register();
+    private string passwordCheck;
+    private Guid idToBeDeleted;
+    private bool showConfirmation = false;
+    private bool showRegister = false;
+
+    private async Task ShowRegister()
+    {
+        showRegister = true;
+    }
+    private async Task RegisterConfirmed()
+    {
+        if (passwordCheck.Equals(register.Password))
+        {
+            await accountService.Register(register);
+            showRegister = false;
+            errorPassword = null;
+        }
+        else
+        {
+            errorPassword = "Podane hasła są różne.";
+        }
+    }
+    private async Task RegisterCancelled()
+    {
+        showRegister = false;
+    }
+    private async Task LogOut()
+    {
+        await accountService.LogOut();
+    }
+    private async Task ShowConfirmation(Guid id)
+    {
+        showConfirmation = true;
+        idToBeDeleted = id;
+    }
+    private async Task DeleteConfirmed()
+    {
+        await accountService.DeleteRental(idToBeDeleted);
+        showConfirmation = false;
+    }
+    private async Task DeleteCancelled()
+    {
+        showConfirmation = false;
+    }
+    private async Task LogIn()
+    {
+        //HttpClientHandler clientHandler = new HttpClientHandler();
+        //clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+
+        //accountService.SetAccountHttpClienttAsync(new HttpClient(clientHandler));
+
+        var response = await accountService.AccountClient.PostAsJsonAsync("https://localhost:7255/api/account/login", login);
+
+        if (response.IsSuccessStatusCode)
+        {
+            accountService.SetAccountAsync(await response.Content.ReadFromJsonAsync<AccountDto>());
+            errorMessage = null;
+
+            accountService.FetchRentalsAsync();
+        }
+        else
+        {
+            errorMessage = await response.Content.ReadAsStringAsync();
+        }
+    }
+
+    private void UpdateState()
+    {
+        StateHasChanged();
+    }
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        accountService.OnRentalsChanged += UpdateState;
+    }
+}

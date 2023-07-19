@@ -1,0 +1,17 @@
+C:\Users\Prezes\Desktop\zadanie\CarRental.Infrastructure\obj\Debug\net6.0\CarRental.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\Prezes\Desktop\zadanie\CarRental.Infrastructure\obj\Debug\net6.0\CarRental.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Prezes\Desktop\zadanie\CarRental.Infrastructure\obj\Debug\net6.0\CarRental.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\Prezes\Desktop\zadanie\CarRental.Infrastructure\obj\Debug\net6.0\CarRental.Infrastructure.AssemblyInfo.cs
+C:\Users\Prezes\Desktop\zadanie\CarRental.Infrastructure\obj\Debug\net6.0\CarRental.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\Prezes\Desktop\zadanie\CarRental.Infrastructure\bin\Debug\net6.0\CarRental.Infrastructure.deps.json
+C:\Users\Prezes\Desktop\zadanie\CarRental.Infrastructure\bin\Debug\net6.0\CarRental.Infrastructure.dll
+C:\Users\Prezes\Desktop\zadanie\CarRental.Infrastructure\bin\Debug\net6.0\CarRental.Infrastructure.pdb
+C:\Users\Prezes\Desktop\zadanie\CarRental.Infrastructure\bin\Debug\net6.0\CarRental.Core.dll
+C:\Users\Prezes\Desktop\zadanie\CarRental.Infrastructure\bin\Debug\net6.0\CarRental.Core.pdb
+C:\Users\Prezes\Desktop\zadanie\CarRental.Infrastructure\obj\Debug\net6.0\CarRental.Infrastructure.csproj.CopyComplete
+C:\Users\Prezes\Desktop\zadanie\CarRental.Infrastructure\obj\Debug\net6.0\CarRental.Infrastructure.dll
+C:\Users\Prezes\Desktop\zadanie\CarRental.Infrastructure\obj\Debug\net6.0\refint\CarRental.Infrastructure.dll
+C:\Users\Prezes\Desktop\zadanie\CarRental.Infrastructure\obj\Debug\net6.0\CarRental.Infrastructure.pdb
+C:\Users\Prezes\Desktop\zadanie\CarRental.Infrastructure\obj\Debug\net6.0\ref\CarRental.Infrastructure.dll
+C:\Users\Prezes\Desktop\zadanie\CarRental.Infrastructure\bin\Debug\net6.0\CarRental.Infrastructure.runtimeconfig.json
+C:\Users\Prezes\Desktop\zadanie\CarRental.Infrastructure\obj\Debug\net6.0\CarRental.Infrastructure.genruntimeconfig.cache
