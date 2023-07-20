@@ -1,5 +1,6 @@
 ﻿using CarRental.Core.Domain;
 using CarRental.Core.Repositories;
+using CarRental.Infrastructure.DTO;
 using CarRental.Infrastructure.DTO.Users;
 using System;
 using System.Collections.Generic;
@@ -12,10 +13,12 @@ namespace CarRental.Infrastructure.Services
     public class UserService : IUserService
     {
         private readonly IUserRepository _userRepository;
+        private readonly IJwtHandler _jwtHandler;
 
-        public UserService(IUserRepository userRepository)
+        public UserService(IUserRepository userRepository, IJwtHandler jwtHandler)
         {
             _userRepository = userRepository;
+            _jwtHandler = jwtHandler;
         }
 
         public async Task<AccountDto> GetAccountAsync(Guid id)
@@ -34,23 +37,45 @@ namespace CarRental.Infrastructure.Services
             };
         }
 
-        public async Task<AccountDto> LoginAsync(string email, string password)
+        // This is old version of loging users
+        /* public async Task<AccountDto> LoginAsync(string email, string password)
+         {
+             var user = await _userRepository.GetAsync(email);
+             if (user == null)
+             {
+                 throw new Exception($"Invalid credentials.");
+             }
+             if(user.Password != password)
+             {
+                 throw new Exception($"Invalid credentials.");
+             }
+             return new AccountDto()
+             {
+                 Id = user.Id,
+                 Role = user.Role,
+                 Name = user.Name,
+                 Email = user.Email
+             };
+         }*/
+
+        public async Task<TokenDto> LoginAsync(string email, string password)
         {
             var user = await _userRepository.GetAsync(email);
             if (user == null)
             {
                 throw new Exception($"Invalid credentials.");
             }
-            if(user.Password != password)
+            if (user.Password != password)
             {
                 throw new Exception($"Invalid credentials.");
             }
-            return new AccountDto()
+            var jwt = _jwtHandler.CreateToken(user.Id, user.Role);
+
+            return new TokenDto
             {
-                Id = user.Id,
-                Role = user.Role,
-                Name = user.Name,
-                Email = user.Email
+                Token = jwt.Token,
+                Expires = jwt.Expires,
+                Role = user.Role
             };
         }
 
