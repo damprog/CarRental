@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "ILpahUMAHPH1QNQXcOu05f8mhCRg021f0b+HWkv2hUWdtveuyOepDOGHpjsv9v+YrMIdN4uXJcaGPkI8LOCIjw==",
+  "dgSpecHash": "0+z079U+juEikga/21B96FmGEL+7ca+AAo2Op5amB3oF73WPc9WACR/gapMozDLytxiFaCZOQ7vwX6dGJIP4RQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Prezes\\Desktop\\zadanie\\CarRental.APP\\CarRental.APP.csproj",
+  "projectFilePath": "D:\\GitHub\\damprog\\CarRental\\CarRental.APP\\CarRental.APP.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Prezes\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\Prezes\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
+    "C:\\Users\\Prezes\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.20\\microsoft.aspnetcore.authentication.jwtbearer.6.0.20.nupkg.sha512",
     "C:\\Users\\Prezes\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\Prezes\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\Prezes\\.nuget\\packages\\microsoft.data.sqlclient\\5.1.1\\microsoft.data.sqlclient.5.1.1.nupkg.sha512",

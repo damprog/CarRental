@@ -10,3 +10,15 @@ C:\Users\Prezes\Desktop\zadanie\CarRental.Core\obj\Debug\net6.0\CarRental.Core.d
 C:\Users\Prezes\Desktop\zadanie\CarRental.Core\obj\Debug\net6.0\refint\CarRental.Core.dll
 C:\Users\Prezes\Desktop\zadanie\CarRental.Core\obj\Debug\net6.0\CarRental.Core.pdb
 C:\Users\Prezes\Desktop\zadanie\CarRental.Core\obj\Debug\net6.0\ref\CarRental.Core.dll
+D:\GitHub\damprog\CarRental\CarRental.Core\bin\Debug\net6.0\CarRental.Core.deps.json
+D:\GitHub\damprog\CarRental\CarRental.Core\bin\Debug\net6.0\CarRental.Core.dll
+D:\GitHub\damprog\CarRental\CarRental.Core\bin\Debug\net6.0\CarRental.Core.pdb
+D:\GitHub\damprog\CarRental\CarRental.Core\obj\Debug\net6.0\CarRental.Core.csproj.AssemblyReference.cache
+D:\GitHub\damprog\CarRental\CarRental.Core\obj\Debug\net6.0\CarRental.Core.GeneratedMSBuildEditorConfig.editorconfig
+D:\GitHub\damprog\CarRental\CarRental.Core\obj\Debug\net6.0\CarRental.Core.AssemblyInfoInputs.cache
+D:\GitHub\damprog\CarRental\CarRental.Core\obj\Debug\net6.0\CarRental.Core.AssemblyInfo.cs
+D:\GitHub\damprog\CarRental\CarRental.Core\obj\Debug\net6.0\CarRental.Core.csproj.CoreCompileInputs.cache
+D:\GitHub\damprog\CarRental\CarRental.Core\obj\Debug\net6.0\CarRental.Core.dll
+D:\GitHub\damprog\CarRental\CarRental.Core\obj\Debug\net6.0\refint\CarRental.Core.dll
+D:\GitHub\damprog\CarRental\CarRental.Core\obj\Debug\net6.0\CarRental.Core.pdb
+D:\GitHub\damprog\CarRental\CarRental.Core\obj\Debug\net6.0\ref\CarRental.Core.dll

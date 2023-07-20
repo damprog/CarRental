@@ -15,11 +15,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Prezes\\Desktop\\zadanie\\CarRental.Core\\CarRental.Core.csproj",
+      "projectUniqueName": "D:\\GitHub\\damprog\\CarRental\\CarRental.Core\\CarRental.Core.csproj",
       "projectName": "CarRental.Core",
-      "projectPath": "C:\\Users\\Prezes\\Desktop\\zadanie\\CarRental.Core\\CarRental.Core.csproj",
+      "projectPath": "D:\\GitHub\\damprog\\CarRental\\CarRental.Core\\CarRental.Core.csproj",
       "packagesPath": "C:\\Users\\Prezes\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Prezes\\Desktop\\zadanie\\CarRental.Core\\obj\\",
+      "outputPath": "D:\\GitHub\\damprog\\CarRental\\CarRental.Core\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\DevExpress 22.1\\Components\\Offline Packages",

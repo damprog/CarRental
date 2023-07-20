@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "peizogc4LkTBVl3Dh8QeJQbbSH7ykyUa0M679PgF6AU=",
+  "Hash": "TubxoDRUdxbWd70V+mPL4HLPESd585UOFHMnQPl9dKU=",
   "Source": "CarRental.APP",
   "BasePath": "_content/CarRental.APP",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "CarRental.APP\\wwwroot",
       "Source": "CarRental.APP",
-      "ContentRoot": "C:\\Users\\Prezes\\Desktop\\zadanie\\CarRental.APP\\wwwroot\\",
+      "ContentRoot": "D:\\GitHub\\damprog\\CarRental\\CarRental.APP\\wwwroot\\",
       "BasePath": "_content/CarRental.APP",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\Prezes\\Desktop\\zadanie\\CarRental.APP\\obj\\Debug\\net6.0\\scopedcss\\bundle\\CarRental.APP.styles.css",
+      "Identity": "D:\\GitHub\\damprog\\CarRental\\CarRental.APP\\obj\\Debug\\net6.0\\scopedcss\\bundle\\CarRental.APP.styles.css",
       "SourceId": "CarRental.APP",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\Prezes\\Desktop\\zadanie\\CarRental.APP\\obj\\Debug\\net6.0\\scopedcss\\bundle\\",
+      "ContentRoot": "D:\\GitHub\\damprog\\CarRental\\CarRental.APP\\obj\\Debug\\net6.0\\scopedcss\\bundle\\",
       "BasePath": "_content/CarRental.APP",
       "RelativePath": "CarRental.APP.styles.css",
       "AssetKind": "All",
@@ -31,13 +31,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\Prezes\\Desktop\\zadanie\\CarRental.APP\\obj\\Debug\\net6.0\\scopedcss\\bundle\\CarRental.APP.styles.css"
+      "OriginalItemSpec": "D:\\GitHub\\damprog\\CarRental\\CarRental.APP\\obj\\Debug\\net6.0\\scopedcss\\bundle\\CarRental.APP.styles.css"
     },
     {
-      "Identity": "C:\\Users\\Prezes\\Desktop\\zadanie\\CarRental.APP\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\CarRental.APP.bundle.scp.css",
+      "Identity": "D:\\GitHub\\damprog\\CarRental\\CarRental.APP\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\CarRental.APP.bundle.scp.css",
       "SourceId": "CarRental.APP",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\Prezes\\Desktop\\zadanie\\CarRental.APP\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "D:\\GitHub\\damprog\\CarRental\\CarRental.APP\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/CarRental.APP",
       "RelativePath": "CarRental.APP.bundle.scp.css",
       "AssetKind": "All",
@@ -48,13 +48,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\Prezes\\Desktop\\zadanie\\CarRental.APP\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\CarRental.APP.bundle.scp.css"
+      "OriginalItemSpec": "D:\\GitHub\\damprog\\CarRental\\CarRental.APP\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\CarRental.APP.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\Prezes\\Desktop\\zadanie\\CarRental.APP\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "Identity": "D:\\GitHub\\damprog\\CarRental\\CarRental.APP\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
       "SourceId": "CarRental.APP",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Prezes\\Desktop\\zadanie\\CarRental.APP\\wwwroot\\",
+      "ContentRoot": "D:\\GitHub\\damprog\\CarRental\\CarRental.APP\\wwwroot\\",
       "BasePath": "_content/CarRental.APP",
       "RelativePath": "css/bootstrap/bootstrap.min.css",
       "AssetKind": "All",
@@ -68,10 +68,10 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\Prezes\\Desktop\\zadanie\\CarRental.APP\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "Identity": "D:\\GitHub\\damprog\\CarRental\\CarRental.APP\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
       "SourceId": "CarRental.APP",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Prezes\\Desktop\\zadanie\\CarRental.APP\\wwwroot\\",
+      "ContentRoot": "D:\\GitHub\\damprog\\CarRental\\CarRental.APP\\wwwroot\\",
       "BasePath": "_content/CarRental.APP",
       "RelativePath": "css/bootstrap/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -85,27 +85,10 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\Prezes\\Desktop\\zadanie\\CarRental.APP\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
+      "Identity": "D:\\GitHub\\damprog\\CarRental\\CarRental.APP\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
       "SourceId": "CarRental.APP",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Prezes\\Desktop\\zadanie\\CarRental.APP\\wwwroot\\",
-      "BasePath": "_content/CarRental.APP",
-      "RelativePath": "css/open-iconic/FONT-LICENSE",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\open-iconic\\FONT-LICENSE"
-    },
-    {
-      "Identity": "C:\\Users\\Prezes\\Desktop\\zadanie\\CarRental.APP\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
-      "SourceId": "CarRental.APP",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Prezes\\Desktop\\zadanie\\CarRental.APP\\wwwroot\\",
+      "ContentRoot": "D:\\GitHub\\damprog\\CarRental\\CarRental.APP\\wwwroot\\",
       "BasePath": "_content/CarRental.APP",
       "RelativePath": "css/open-iconic/font/css/open-iconic-bootstrap.min.css",
       "AssetKind": "All",
@@ -119,10 +102,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\Prezes\\Desktop\\zadanie\\CarRental.APP\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
+      "Identity": "D:\\GitHub\\damprog\\CarRental\\CarRental.APP\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
       "SourceId": "CarRental.APP",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Prezes\\Desktop\\zadanie\\CarRental.APP\\wwwroot\\",
+      "ContentRoot": "D:\\GitHub\\damprog\\CarRental\\CarRental.APP\\wwwroot\\",
       "BasePath": "_content/CarRental.APP",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.eot",
       "AssetKind": "All",
@@ -136,10 +119,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot"
     },
     {
-      "Identity": "C:\\Users\\Prezes\\Desktop\\zadanie\\CarRental.APP\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
+      "Identity": "D:\\GitHub\\damprog\\CarRental\\CarRental.APP\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
       "SourceId": "CarRental.APP",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Prezes\\Desktop\\zadanie\\CarRental.APP\\wwwroot\\",
+      "ContentRoot": "D:\\GitHub\\damprog\\CarRental\\CarRental.APP\\wwwroot\\",
       "BasePath": "_content/CarRental.APP",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.otf",
       "AssetKind": "All",
@@ -153,10 +136,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf"
     },
     {
-      "Identity": "C:\\Users\\Prezes\\Desktop\\zadanie\\CarRental.APP\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
+      "Identity": "D:\\GitHub\\damprog\\CarRental\\CarRental.APP\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
       "SourceId": "CarRental.APP",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Prezes\\Desktop\\zadanie\\CarRental.APP\\wwwroot\\",
+      "ContentRoot": "D:\\GitHub\\damprog\\CarRental\\CarRental.APP\\wwwroot\\",
       "BasePath": "_content/CarRental.APP",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.svg",
       "AssetKind": "All",
@@ -170,10 +153,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg"
     },
     {
-      "Identity": "C:\\Users\\Prezes\\Desktop\\zadanie\\CarRental.APP\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
+      "Identity": "D:\\GitHub\\damprog\\CarRental\\CarRental.APP\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
       "SourceId": "CarRental.APP",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Prezes\\Desktop\\zadanie\\CarRental.APP\\wwwroot\\",
+      "ContentRoot": "D:\\GitHub\\damprog\\CarRental\\CarRental.APP\\wwwroot\\",
       "BasePath": "_content/CarRental.APP",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.ttf",
       "AssetKind": "All",
@@ -187,10 +170,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf"
     },
     {
-      "Identity": "C:\\Users\\Prezes\\Desktop\\zadanie\\CarRental.APP\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
+      "Identity": "D:\\GitHub\\damprog\\CarRental\\CarRental.APP\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
       "SourceId": "CarRental.APP",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Prezes\\Desktop\\zadanie\\CarRental.APP\\wwwroot\\",
+      "ContentRoot": "D:\\GitHub\\damprog\\CarRental\\CarRental.APP\\wwwroot\\",
       "BasePath": "_content/CarRental.APP",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.woff",
       "AssetKind": "All",
@@ -204,10 +187,27 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff"
     },
     {
-      "Identity": "C:\\Users\\Prezes\\Desktop\\zadanie\\CarRental.APP\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
+      "Identity": "D:\\GitHub\\damprog\\CarRental\\CarRental.APP\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
       "SourceId": "CarRental.APP",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Prezes\\Desktop\\zadanie\\CarRental.APP\\wwwroot\\",
+      "ContentRoot": "D:\\GitHub\\damprog\\CarRental\\CarRental.APP\\wwwroot\\",
+      "BasePath": "_content/CarRental.APP",
+      "RelativePath": "css/open-iconic/FONT-LICENSE",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\open-iconic\\FONT-LICENSE"
+    },
+    {
+      "Identity": "D:\\GitHub\\damprog\\CarRental\\CarRental.APP\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
+      "SourceId": "CarRental.APP",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\GitHub\\damprog\\CarRental\\CarRental.APP\\wwwroot\\",
       "BasePath": "_content/CarRental.APP",
       "RelativePath": "css/open-iconic/ICON-LICENSE",
       "AssetKind": "All",
@@ -221,10 +221,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\ICON-LICENSE"
     },
     {
-      "Identity": "C:\\Users\\Prezes\\Desktop\\zadanie\\CarRental.APP\\wwwroot\\css\\open-iconic\\README.md",
+      "Identity": "D:\\GitHub\\damprog\\CarRental\\CarRental.APP\\wwwroot\\css\\open-iconic\\README.md",
       "SourceId": "CarRental.APP",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Prezes\\Desktop\\zadanie\\CarRental.APP\\wwwroot\\",
+      "ContentRoot": "D:\\GitHub\\damprog\\CarRental\\CarRental.APP\\wwwroot\\",
       "BasePath": "_content/CarRental.APP",
       "RelativePath": "css/open-iconic/README.md",
       "AssetKind": "All",
@@ -238,10 +238,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\README.md"
     },
     {
-      "Identity": "C:\\Users\\Prezes\\Desktop\\zadanie\\CarRental.APP\\wwwroot\\css\\site.css",
+      "Identity": "D:\\GitHub\\damprog\\CarRental\\CarRental.APP\\wwwroot\\css\\site.css",
       "SourceId": "CarRental.APP",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Prezes\\Desktop\\zadanie\\CarRental.APP\\wwwroot\\",
+      "ContentRoot": "D:\\GitHub\\damprog\\CarRental\\CarRental.APP\\wwwroot\\",
       "BasePath": "_content/CarRental.APP",
       "RelativePath": "css/site.css",
       "AssetKind": "All",
@@ -255,10 +255,10 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
-      "Identity": "C:\\Users\\Prezes\\Desktop\\zadanie\\CarRental.APP\\wwwroot\\favicon.ico",
+      "Identity": "D:\\GitHub\\damprog\\CarRental\\CarRental.APP\\wwwroot\\favicon.ico",
       "SourceId": "CarRental.APP",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Prezes\\Desktop\\zadanie\\CarRental.APP\\wwwroot\\",
+      "ContentRoot": "D:\\GitHub\\damprog\\CarRental\\CarRental.APP\\wwwroot\\",
       "BasePath": "_content/CarRental.APP",
       "RelativePath": "favicon.ico",
       "AssetKind": "All",

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Prezes\\Desktop\\zadanie\\CarRental.APP\\CarRental.APP.csproj": {}
+    "D:\\GitHub\\damprog\\CarRental\\CarRental.APP\\CarRental.APP.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Prezes\\Desktop\\zadanie\\CarRental.APP\\CarRental.APP.csproj": {
+    "D:\\GitHub\\damprog\\CarRental\\CarRental.APP\\CarRental.APP.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Prezes\\Desktop\\zadanie\\CarRental.APP\\CarRental.APP.csproj",
+        "projectUniqueName": "D:\\GitHub\\damprog\\CarRental\\CarRental.APP\\CarRental.APP.csproj",
         "projectName": "CarRental.APP",
-        "projectPath": "C:\\Users\\Prezes\\Desktop\\zadanie\\CarRental.APP\\CarRental.APP.csproj",
+        "projectPath": "D:\\GitHub\\damprog\\CarRental\\CarRental.APP\\CarRental.APP.csproj",
         "packagesPath": "C:\\Users\\Prezes\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Prezes\\Desktop\\zadanie\\CarRental.APP\\obj\\",
+        "outputPath": "D:\\GitHub\\damprog\\CarRental\\CarRental.APP\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\DevExpress 22.1\\Components\\Offline Packages",
@@ -36,8 +36,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Prezes\\Desktop\\zadanie\\CarRental.Infrastructure\\CarRental.Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\Prezes\\Desktop\\zadanie\\CarRental.Infrastructure\\CarRental.Infrastructure.csproj"
+              "D:\\GitHub\\damprog\\CarRental\\CarRental.Infrastructure\\CarRental.Infrastructure.csproj": {
+                "projectPath": "D:\\GitHub\\damprog\\CarRental\\CarRental.Infrastructure\\CarRental.Infrastructure.csproj"
               }
             }
           }
@@ -80,14 +80,14 @@
         }
       }
     },
-    "C:\\Users\\Prezes\\Desktop\\zadanie\\CarRental.Core\\CarRental.Core.csproj": {
+    "D:\\GitHub\\damprog\\CarRental\\CarRental.Core\\CarRental.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Prezes\\Desktop\\zadanie\\CarRental.Core\\CarRental.Core.csproj",
+        "projectUniqueName": "D:\\GitHub\\damprog\\CarRental\\CarRental.Core\\CarRental.Core.csproj",
         "projectName": "CarRental.Core",
-        "projectPath": "C:\\Users\\Prezes\\Desktop\\zadanie\\CarRental.Core\\CarRental.Core.csproj",
+        "projectPath": "D:\\GitHub\\damprog\\CarRental\\CarRental.Core\\CarRental.Core.csproj",
         "packagesPath": "C:\\Users\\Prezes\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Prezes\\Desktop\\zadanie\\CarRental.Core\\obj\\",
+        "outputPath": "D:\\GitHub\\damprog\\CarRental\\CarRental.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\DevExpress 22.1\\Components\\Offline Packages",
@@ -143,14 +143,14 @@
         }
       }
     },
-    "C:\\Users\\Prezes\\Desktop\\zadanie\\CarRental.Infrastructure\\CarRental.Infrastructure.csproj": {
+    "D:\\GitHub\\damprog\\CarRental\\CarRental.Infrastructure\\CarRental.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Prezes\\Desktop\\zadanie\\CarRental.Infrastructure\\CarRental.Infrastructure.csproj",
+        "projectUniqueName": "D:\\GitHub\\damprog\\CarRental\\CarRental.Infrastructure\\CarRental.Infrastructure.csproj",
         "projectName": "CarRental.Infrastructure",
-        "projectPath": "C:\\Users\\Prezes\\Desktop\\zadanie\\CarRental.Infrastructure\\CarRental.Infrastructure.csproj",
+        "projectPath": "D:\\GitHub\\damprog\\CarRental\\CarRental.Infrastructure\\CarRental.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\Prezes\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Prezes\\Desktop\\zadanie\\CarRental.Infrastructure\\obj\\",
+        "outputPath": "D:\\GitHub\\damprog\\CarRental\\CarRental.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\DevExpress 22.1\\Components\\Offline Packages",
@@ -175,8 +175,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Prezes\\Desktop\\zadanie\\CarRental.Core\\CarRental.Core.csproj": {
-                "projectPath": "C:\\Users\\Prezes\\Desktop\\zadanie\\CarRental.Core\\CarRental.Core.csproj"
+              "D:\\GitHub\\damprog\\CarRental\\CarRental.Core\\CarRental.Core.csproj": {
+                "projectPath": "D:\\GitHub\\damprog\\CarRental\\CarRental.Core\\CarRental.Core.csproj"
               }
             }
           }
@@ -191,6 +191,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[6.0.20, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.0-preview.5.23280.1, )"

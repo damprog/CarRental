@@ -39,11 +39,11 @@ namespace CarRental.Infrastructure.Services
             var user = await _userRepository.GetAsync(email);
             if (user == null)
             {
-                throw new Exception($"Invalid email.");
+                throw new Exception($"Invalid credentials.");
             }
             if(user.Password != password)
             {
-                throw new Exception($"Invalid password.");
+                throw new Exception($"Invalid credentials.");
             }
             return new AccountDto()
             {
