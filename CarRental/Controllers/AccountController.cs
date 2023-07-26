@@ -3,11 +3,14 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using CarRental.Infrastructure.DTO.Rentals;
 using CarRental.Infrastructure.DTO.Users;
+using Microsoft.AspNetCore.Authorization;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace CarRental.API.Controllers
 {
-    [Route("api/[controller]")]
-    public class AccountController : Controller
+    // [api/account] - main url for account
+    //[Route("api/[controller]")] - unnecessary because route is defined in base class
+    public class AccountController : ApiControllerBase
     {
 
         private readonly IUserService _userService;
@@ -21,12 +24,22 @@ namespace CarRental.API.Controllers
             _carService = carService;
         }
 
+        // tu zrobic
+        // tu zrobic
+        // tu zrobic
+
         // api/account/{userId} - logged in user
-        [HttpGet("{userId}")] 
-        public async Task<IActionResult> GetAccount(Guid userId)
+        //[HttpGet("{userId}")] - old, for jwt not required
+        [HttpGet]
+        [Authorize]
+        public async Task<IActionResult> GetAccount() // (Guid userId)
         {
-            return Json(await _userService.GetAccountAsync(userId));
+            return Json(await _userService.GetAccountAsync(UserId)); // (userId)
         }
+
+        // tu poprawić
+        // tu poprawić
+        // tu poprawić aczkolwiek nie trzeba póki co
 
         // api/account/register - here data should be passed for register
         [HttpPost("register")]
@@ -44,28 +57,62 @@ namespace CarRental.API.Controllers
             return Json(user);
         }
 
+        // tu zrobic
+        // tu zrobic
+        // tu zrobic
+
         // api/account/rentals/{userId} - all rent orders for logged in user
-        [HttpGet("rentals/{userId}")]
-        public async Task<IActionResult> GetRentals(Guid userId)
+        [Authorize]
+        [HttpGet("rentals")] 
+        public async Task<IActionResult> GetRentals()
         {
-            var account = await _userService.GetAccountAsync(userId);
-            var rentals = await _rentalService.GetForUserAsync(account.Id);
-            if (rentals == null)
+            // get userId from jwt claims
+            string token = HttpContext.Request.Headers["Authorization"].FirstOrDefault();
+            
+            if(!string.IsNullOrEmpty(token) && token.StartsWith("Bearer "))
             {
-                return NotFound();
+                string jwtToken = token.Substring("Bearer ".Length);
+                var tokenHandler = new JwtSecurityTokenHandler();
+                var jwt = tokenHandler.ReadJwtToken(jwtToken);
+
+                var account = await _userService.GetAccountAsync(Guid.Parse(jwt.Subject));
+                var rentals = await _rentalService.GetForUserAsync(account.Id);
+                if (rentals == null)
+                {
+                    return NotFound();
+                }
+                return Json(rentals);
             }
-            return Json(rentals);
+            else
+            {
+                return Unauthorized();
+            }
         }
 
         // api/account/rentals - post method should add rental
-        [HttpPost("rentals")]
+        [Authorize]
+        [HttpPost("rentals")] 
         public async Task<IActionResult> PostRental([FromBody]CreateRentalDto rental)
         {
-            var user = await _userService.GetAccountAsync(rental.UserId);
-            var car = await _carService.GetAsync(rental.CarId);
-            var id = Guid.NewGuid();
-            await _rentalService.CreateAsync(id, car, user, rental.StartDate, rental.EndDate);
-            return Created("api/account/rentals", null);
+            // get userId from jwt claims
+            string token = HttpContext.Request.Headers["Authorization"].FirstOrDefault();
+
+            if (!string.IsNullOrEmpty(token) && token.StartsWith("Bearer "))
+            {
+                string jwtToken = token.Substring("Bearer ".Length);
+                var tokenHandler = new JwtSecurityTokenHandler();
+                var jwt = tokenHandler.ReadJwtToken(jwtToken);
+
+                var user = await _userService.GetAccountAsync(Guid.Parse(jwt.Subject));
+                var car = await _carService.GetAsync(rental.CarId);
+                var id = Guid.NewGuid();
+                await _rentalService.CreateAsync(id, car, user, rental.StartDate, rental.EndDate);
+                return Created("api/account/rentals", null);
+            }
+            else
+            {
+                return Unauthorized();
+            }
         }
 
         [HttpPut("rentals/id/{rentalId}")]

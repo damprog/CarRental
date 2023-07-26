@@ -5,6 +5,7 @@
 @using CarRental.Infrastructure.DTO.Rentals;
 @using CarRental.Infrastructure.DTO.Users
 @using CarRental.APP.Data
+@using CarRental.Infrastructure.DTO;
 @inject HttpClient Http
 @inject AccountService accountService
 
@@ -13,11 +14,11 @@
     <p>@errorMessage</p>
 }
 
-@if (@accountService.Account != null)
+@if (@accountService.Token != null)
 {
     if (!@accountService.IsAdmin().Result)
     {
-        <h3>Witaj, @accountService.Account.Name</h3>
+        <h3>Witaj, @accountService.Token.Username</h3>
         <br />
         <button @onclick="LogOut" class="btn btn-primary">Wyloguj</button>
         <br />
@@ -59,7 +60,7 @@
     }
     else
     {
-        <h3>Witaj, @accountService.Account.Name</h3>
+        <h3>Witaj, @accountService.Token.Username</h3>
         <br />
         <button @onclick="LogOut" class="btn btn-primary">Wyloguj</button>
     }
@@ -202,14 +203,14 @@ else
 
         //accountService.SetAccountHttpClienttAsync(new HttpClient(clientHandler));
 
-        var response = await accountService.AccountClient.PostAsJsonAsync("https://localhost:7255/api/account/login", login);
+        var response = await accountService.AccountClient.PostAsJsonAsync("https://localhost:7255/[api/account]/login", login);
 
         if (response.IsSuccessStatusCode)
         {
-            accountService.SetAccountAsync(await response.Content.ReadFromJsonAsync<AccountDto>());
+            await accountService.SetAccountAsync(await response.Content.ReadFromJsonAsync<TokenDto>());
             errorMessage = null;
 
-            accountService.FetchRentalsAsync();
+            await accountService.FetchRentalsAsync();
         }
         else
         {

@@ -36,7 +36,7 @@
                     {
                         <th></th>
                     }
-                    else if (@accountService.Account != null)
+                    else if (@accountService.Token != null)
                     {
                         <th>Wynajem</th>
                     }
@@ -54,7 +54,7 @@
                         {
                             <td><button @onclick="(() => ShowConfirmation(car.Id))" class="btn btn-danger">X</button></td>
                         }
-                        else if (@accountService.Account != null)
+                        else if (@accountService.Token != null)
                         {
                             <td><button @onclick="(() => ShowModalAddRental(car.Id))" class="btn btn-primary">Dodaj</button></td>
                         }
@@ -156,8 +156,9 @@
     private async Task AddRentalConfirmed()
     {
         createRental.CarId = carIdToRental;
-        createRental.UserId = accountService.Account.Id;
+        createRental.JWT = accountService.Token.JWT;
 
+        await carsService.Setup(accountService.Token.JWT);
         await carsService.AddRental(createRental);
         modalAddRental = false;
     }
@@ -201,7 +202,6 @@
     {
         base.OnInitialized();
         carsService.CarsChanged += UpdateState;
-
         await carsService.GetCars();
     }
 }

@@ -29,7 +29,7 @@ namespace CarRental.APP.Data
         }
         public async Task AddRental(CreateRentalDto createRental)
         {
-            await _carClient.PostAsJsonAsync("https://localhost:7255/api/account/rentals", createRental);
+            await _carClient.PostAsJsonAsync("https://localhost:7255/[api/account]/rentals", createRental);
         }
         public async Task DeleteCar(Guid id)
         {
@@ -39,6 +39,10 @@ namespace CarRental.APP.Data
         public async Task GetCars()
         {
             _carsDto = await _carClient.GetFromJsonAsync<CarDto[]>("https://localhost:7255/api/cars/");
+        }
+        public async Task Setup(string jwt)
+        {
+            _carClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", jwt);
         }
         public CarsService()
         {

@@ -69,13 +69,14 @@ namespace CarRental.Infrastructure.Services
             {
                 throw new Exception($"Invalid credentials.");
             }
-            var jwt = _jwtHandler.CreateToken(user.Id, user.Role);
+            var jwt = _jwtHandler.CreateToken(user.Id, user.Role, user.Name);
 
             return new TokenDto
             {
-                Token = jwt.Token,
+                JWT = jwt.Token,
                 Expires = jwt.Expires,
-                Role = user.Role
+                Role = user.Role,
+                Username = user.Name
             };
         }
 

@@ -1,16 +1,18 @@
-﻿using CarRental.Infrastructure.DTO.Rentals;
+﻿using CarRental.Infrastructure.DTO;
+using CarRental.Infrastructure.DTO.Rentals;
 using CarRental.Infrastructure.DTO.Users;
 
 namespace CarRental.APP.Data
 {
     public class AccountService
     {
-        private AccountDto _account;
+        private TokenDto _token;
         private HttpClient _accountClient;
         private RentalDto[]? _rentalsDto;
 
+
         public event Action OnRentalsChanged;
-        public AccountDto Account { get { return _account; } }
+        public TokenDto Token { get { return _token; } }
         public HttpClient AccountClient { get { return _accountClient; } }
         public RentalDto[]? RentalsDto { get { return _rentalsDto; } }
 
@@ -22,28 +24,29 @@ namespace CarRental.APP.Data
         }
         public async Task Register(Register register)
         {
-            AccountClient.PostAsJsonAsync("https://localhost:7255/api/account/register", register);
+            AccountClient.PostAsJsonAsync("https://localhost:7255/[api/account]/register", register);
         }
         public async Task LogOut()
         {
-            _account = null;
+            _token = null;
         }
         public async Task DeleteRental(Guid id)
         {
-            await AccountClient.DeleteAsync($"https://localhost:7255/api/account/rentals/id/{id}");
+            await AccountClient.DeleteAsync($"https://localhost:7255/[api/account]/rentals/id/{id}");
             await FetchRentalsAsync();
         }
         public async Task<bool> IsAdmin()
         {
-            if (Account != null)
+            if (Token != null)
             {
-                return Account.Role.ToLower().Equals("admin");
+                return Token.Role.ToLower().Equals("admin");
             }
             return false;
         }
-        public async Task SetAccountAsync(AccountDto account)
+        public async Task SetAccountAsync(TokenDto account)
         {
-            _account = account;
+            _token = account;
+            _accountClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", _token.JWT);
         }
         /*public async Task SetAccountHttpClienttAsync(HttpClient client)
         {
@@ -56,9 +59,9 @@ namespace CarRental.APP.Data
         }
         public async Task FetchRentalsAsync()
         {
-            if (Account != null)
+            if (Token != null)
             {
-                SetRentalsDtoAsync(await AccountClient.GetFromJsonAsync<RentalDto[]>($"https://localhost:7255/api/account/rentals/{Account.Id}"));
+                SetRentalsDtoAsync(await AccountClient.GetFromJsonAsync<RentalDto[]>($"https://localhost:7255/[api/account]/rentals"));
             }
         }
 

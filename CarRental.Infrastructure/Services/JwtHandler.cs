@@ -16,12 +16,12 @@ namespace CarRental.Infrastructure.Services
     public class JwtHandler : IJwtHandler
     {
         private readonly JwtSettings _jwtSettings;
-        public JwtHandler(IOptions<JwtSettings> jwtSettings) 
+        public JwtHandler(IOptions<JwtSettings> jwtSettings) //IOptions<JwtSettings>
         {
             _jwtSettings = jwtSettings.Value;
         }
 
-        public JwtDto CreateToken(Guid userId, string role)
+        public JwtDto CreateToken(Guid userId, string role, string username)
         {
             var now = DateTime.UtcNow;
             var claims = new Claim[]
@@ -29,10 +29,10 @@ namespace CarRental.Infrastructure.Services
                 new Claim(JwtRegisteredClaimNames.Sub, userId.ToString()),
                 new Claim(JwtRegisteredClaimNames.UniqueName, userId.ToString()),
                 new Claim(ClaimTypes.Role, role),
+                new Claim(ClaimTypes.Name, username),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                 new Claim(JwtRegisteredClaimNames.Iat, now.ToTimestamp().ToString()),
             };
-
             var expires = now.AddMinutes(_jwtSettings.ExpiryMinutes);
             var signingCredentials = new SigningCredentials(new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtSettings.Key)),
                SecurityAlgorithms.HmacSha256);

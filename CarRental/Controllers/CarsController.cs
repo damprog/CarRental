@@ -1,10 +1,12 @@
 ﻿using CarRental.Infrastructure.DTO.Cars;
 using CarRental.Infrastructure.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CarRental.API.Controllers
 {
     [Route("api/[controller]")]
+    //[Authorize(Policy = "HasAdminRole")]
     public class CarsController : Controller
     {
         private readonly ICarService _carService;
@@ -17,13 +19,16 @@ namespace CarRental.API.Controllers
         }
 
         [HttpGet]
+        //[AllowAnonymous]
         public async Task<IActionResult> GetAll(string name)
         {
+            //throw new ArgumentException("Ups ... "); // for testing middleware
             var cars = await _carService.BrowseAsync(name);
             return Json(cars);
         }
 
         [HttpGet("id/{id}")]
+        //[AllowAnonymous]
         public async Task<IActionResult> GetById(Guid id)
         {
             var car = await _carService.GetAsync(id);
@@ -35,6 +40,7 @@ namespace CarRental.API.Controllers
         }
 
         [HttpGet("name/{name}")]
+        //[AllowAnonymous]
         public async Task<IActionResult> GetByName(string name)
         {
             var cars = await _carService.BrowseAsync(name);

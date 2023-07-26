@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "fiu3ADhTTeYGePuaqfUBcJMkLwInegdb1XvihNX04bLtbLe5aoHDEQ01CdH25wh3/0TUIjTso1TFdqWXyySSmA==",
+  "dgSpecHash": "Y+80WRcwoZxk8wsF0ZYTnl6LqGtawFI0ZNQvvt444tlEJXzUux1FYaC72rwGr2UaiDkY8qTB5rgR/0QJc7sQrg==",
   "success": true,
   "projectFilePath": "D:\\GitHub\\damprog\\CarRental\\CarRental.Infrastructure\\CarRental.Infrastructure.csproj",
   "expectedPackageFiles": [
@@ -16,6 +16,7 @@
     "C:\\Users\\Prezes\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\8.0.0-preview.5.23280.1\\microsoft.entityframeworkcore.abstractions.8.0.0-preview.5.23280.1.nupkg.sha512",
     "C:\\Users\\Prezes\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\8.0.0-preview.5.23280.1\\microsoft.entityframeworkcore.analyzers.8.0.0-preview.5.23280.1.nupkg.sha512",
     "C:\\Users\\Prezes\\.nuget\\packages\\microsoft.entityframeworkcore.design\\8.0.0-preview.5.23280.1\\microsoft.entityframeworkcore.design.8.0.0-preview.5.23280.1.nupkg.sha512",
+    "C:\\Users\\Prezes\\.nuget\\packages\\microsoft.entityframeworkcore.inmemory\\7.0.9\\microsoft.entityframeworkcore.inmemory.7.0.9.nupkg.sha512",
     "C:\\Users\\Prezes\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\8.0.0-preview.5.23280.1\\microsoft.entityframeworkcore.relational.8.0.0-preview.5.23280.1.nupkg.sha512",
     "C:\\Users\\Prezes\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\8.0.0-preview.5.23280.1\\microsoft.entityframeworkcore.sqlserver.8.0.0-preview.5.23280.1.nupkg.sha512",
     "C:\\Users\\Prezes\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\8.0.0-preview.5.23280.1\\microsoft.entityframeworkcore.tools.8.0.0-preview.5.23280.1.nupkg.sha512",

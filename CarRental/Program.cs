@@ -1,3 +1,4 @@
+using CarRental.API.Framework;
 using CarRental.Core.Repositories;
 using CarRental.Infrastructure.Data;
 using CarRental.Infrastructure.Repositories;
@@ -30,31 +31,24 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-var app = builder.Build();
-
 // For jwt authentication
-var jwtSetting = app.Services.GetService<JwtSettings>();
+var jwtSetting = builder.Configuration.GetSection("jwt").Get<JwtSettings>();
 
+builder.Services.AddAuthorization(x => x.AddPolicy("HasAdminRole", p => p.RequireRole("admin")));
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
+        options.RequireHttpsMetadata = false;
+        options.SaveToken = true;
         options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
         {
-            /* 
-             * Example:
-             ValidateIssuer = true,
-             ValidateAudience = true,
-             ValidateLifetime = true,
-             ValidateIssuerSigningKey = true,
-             ValidIssuer = "YourIssuer", // Zmieñ na swoj¹ nazwê/nazwê us³ugi, która generuje tokeny JWT
-             ValidAudience = "YourAudience", // Zmieñ na swoj¹ nazwê/nazwê odbiorcy, który u¿ywa tokenów JWT
-             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("YourSecretKey")) // Zmieñ na swoje tajne has³o u¿ywane do generowania i weryfikowania tokenów*/
             ValidIssuer = jwtSetting.Issuer,
             ValidateAudience = false,
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSetting.Key))
         };
-    }); 
+    });
 
+var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -68,6 +62,8 @@ app.UseHttpsRedirection();
 app.UseAuthentication(); // for jwt authentication
 
 app.UseAuthorization();
+
+app.UseErrorHandler(); // own middleware for handle exceptions while process requests
 
 app.MapControllers();
 
