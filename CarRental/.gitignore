@@ -1,3 +1,6 @@
 CarRental/bin/debug/
 /bin/
 */bin/
+
+
+*.vs
